@@ -22,13 +22,18 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center text-center"
           >
-            <Mail className="text-accent mb-3 h-6 w-6" />
-            <div>
-              <h3 className="text-white font-semibold mb-1">Email</h3>
-              <a href="mailto:ryan@bandofcutters.com" className="text-gray-300 hover:text-accent">
-                ryan@bandofcutters.com
-              </a>
-            </div>
+            <a 
+              href="mailto:ryan@bandofcutters.com"
+              className="group flex flex-col items-center hover:text-accent transition-colors"
+            >
+              <Mail className="text-accent mb-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-white font-semibold mb-1">Email</h3>
+                <span className="text-gray-300 group-hover:text-accent">
+                  ryan@bandofcutters.com
+                </span>
+              </div>
+            </a>
           </motion.div>
 
           <motion.div
@@ -37,13 +42,18 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center text-center"
           >
-            <Phone className="text-accent mb-3 h-6 w-6" />
-            <div>
-              <h3 className="text-white font-semibold mb-1">Phone</h3>
-              <a href="tel:647.273.3154" className="text-gray-300 hover:text-accent">
-                647.273.3154
-              </a>
-            </div>
+            <a 
+              href="tel:+16472733154"
+              className="group flex flex-col items-center hover:text-accent transition-colors"
+            >
+              <Phone className="text-accent mb-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-white font-semibold mb-1">Phone</h3>
+                <span className="text-gray-300 group-hover:text-accent">
+                  647.273.3154
+                </span>
+              </div>
+            </a>
           </motion.div>
 
           <motion.div
@@ -52,11 +62,20 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center text-center"
           >
-            <MapPin className="text-accent mb-3 h-6 w-6" />
-            <div>
-              <h3 className="text-white font-semibold mb-1">Location</h3>
-              <p className="text-gray-300">Toronto, Ontario / Remote</p>
-            </div>
+            <a 
+              href="https://www.google.com/maps?q=Toronto,Ontario"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center hover:text-accent transition-colors"
+            >
+              <MapPin className="text-accent mb-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-white font-semibold mb-1">Location</h3>
+                <span className="text-gray-300 group-hover:text-accent">
+                  Toronto, Ontario / Remote
+                </span>
+              </div>
+            </a>
           </motion.div>
         </div>
 
