@@ -72,7 +72,7 @@ export const Contact = () => {
               <div>
                 <h3 className="text-white font-semibold mb-1">Location</h3>
                 <span className="text-gray-300 group-hover:text-accent">
-                  Toronto, Ontario / Remote
+                  Toronto, Canada / Remote
                 </span>
               </div>
             </a>
