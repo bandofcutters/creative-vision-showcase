@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { CV } from "./CV";
+import { FeaturedWork } from "./FeaturedWork";
 
 export const Hero = () => {
   const [showCV, setShowCV] = useState(false);
@@ -48,6 +49,8 @@ export const Hero = () => {
             Picture Editor
           </h2>
         </motion.div>
+
+        <FeaturedWork />
 
         <motion.p 
           initial={{ opacity: 0 }}
