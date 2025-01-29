@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Portfolio } from "@/components/Portfolio";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
+import { FeaturedWork } from "@/components/FeaturedWork";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,6 +25,7 @@ const Index = () => {
 
   return (
     <div className="bg-dark min-h-screen relative">
+      <FeaturedWork />
       <Hero />
       <Portfolio />
       <About />
