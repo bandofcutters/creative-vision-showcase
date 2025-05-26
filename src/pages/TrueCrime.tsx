@@ -2,14 +2,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { PortfolioNav } from "@/components/PortfolioNav";
+import { VideoModal } from "@/components/VideoModal";
 
 const shows = [
   {
     id: 1,
     title: "United Gangs of America Season 2",
-    description: "An investigative series that delves deep into the hidden world of organized crime networks, exploring their operations, impact on society, and the efforts to dismantle them.",
+    description:
+      "An investigative series that delves deep into the hidden world of organized crime networks, exploring their operations, impact on society, and the efforts to dismantle them.",
     image: "/lovable-uploads/a1ab5db7-63b9-40d3-854e-600555069217.png",
     trailerUrl: "https://www.youtube.com/embed/FZIkv-943bE" // Replace with actual video ID
   }
@@ -17,6 +19,7 @@ const shows = [
 
 const TrueCrime = () => {
   const navigate = useNavigate();
+  const [selectedVideo, setSelectedVideo] = useState<{ url: string; title: string } | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,7 +41,7 @@ const TrueCrime = () => {
         </Button>
 
         <PortfolioNav />
-        
+
         <div className="space-y-12">
           {shows.map((show) => (
             <motion.div
@@ -56,11 +59,9 @@ const TrueCrime = () => {
                 <Button
                   variant="outline"
                   className="w-fit border-accent text-accent hover:bg-accent hover:text-dark"
-                  asChild
+                  onClick={() => setSelectedVideo({ url: show.trailerUrl, title: show.title })}
                 >
-                  <a href={show.trailerUrl} target="_blank" rel="noopener noreferrer">
-                    <Play className="mr-2" /> Watch
-                  </a>
+                  <Play className="mr-2" /> Watch
                 </Button>
               </div>
               <div className="flex items-center justify-center p-4">
@@ -74,6 +75,15 @@ const TrueCrime = () => {
           ))}
         </div>
       </motion.div>
+
+      {selectedVideo && (
+        <VideoModal
+          isOpen={!!selectedVideo}
+          onClose={() => setSelectedVideo(null)}
+          videoUrl={selectedVideo.url}
+          title={selectedVideo.title}
+        />
+      )}
     </div>
   );
 };
