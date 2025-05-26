@@ -10,7 +10,13 @@ const shows = [
   {
     id: 1,
     title: "United Gangs of America Season 2",
-    description: "An investigative series that delves deep into the hidden world of organized crime networks, exploring their operations, impact on society, and the efforts to dismantle them.",
+    description: `
+      United Gangs of America, one of the highest-rated original series in VICE TV history, will return for a second season on Tuesday, June 3 at 10P.
+
+      Season 2 will continue to highlight the shocking histories of different gang formations, including their cultures, hierarchies, crimes, and stories of the violence that result from gang-to-gang rivalries wreaking havoc on law enforcement and citizenry in large and small communities alike.
+
+      Never-before-seen footage, as well as exclusive, first-account interviews with former gang allies, family members, undercover officers, and others, will be shown as a part of the series' fresh 360-degree look at some of the worst gangs terrorizing the streets of America today.
+    `.replace(/\s+/g, " ").trim(),
     image: "/lovable-uploads/a1ab5db7-63b9-40d3-854e-600555069217.png",
     trailerUrl: "https://www.youtube.com/embed/FZIkv-943bE" // Replace with actual video ID
   }
