@@ -1,10 +1,54 @@
+// TrueCrime.jsx
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Play } from "lucide-react";
+import { ArrowLeft, Play, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { PortfolioNav } from "@/components/PortfolioNav";
-import { VideoModal } from "@/components/VideoModal";
+
+// Inline VideoModal component!
+const VideoModal = ({ isOpen, onClose, videoUrl, title }) => {
+  if (!isOpen) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+      onClick={onClose} // close on backdrop click
+    >
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        className="relative bg-dark rounded-2xl shadow-2xl max-w-2xl w-full p-4"
+        onClick={e => e.stopPropagation()} // prevent modal close when clicking inside
+      >
+        <button
+          className="absolute top-2 right-2 text-white hover:text-accent"
+          onClick={onClose}
+          aria-label="Close"
+        >
+          <X size={28} />
+        </button>
+        <h2 className="text-xl font-bold mb-4">{title}</h2>
+        <div className="w-full aspect-video rounded-lg overflow-hidden">
+          <iframe
+            width="100%"
+            height="100%"
+            src={videoUrl}
+            title={title}
+            frameBorder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const shows = [
   {
@@ -19,7 +63,7 @@ const shows = [
 
 const TrueCrime = () => {
   const navigate = useNavigate();
-  const [selectedVideo, setSelectedVideo] = useState<{ url: string; title: string } | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,14 +120,13 @@ const TrueCrime = () => {
         </div>
       </motion.div>
 
-      {selectedVideo && (
-        <VideoModal
-          isOpen={!!selectedVideo}
-          onClose={() => setSelectedVideo(null)}
-          videoUrl={selectedVideo.url}
-          title={selectedVideo.title}
-        />
-      )}
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={!!selectedVideo}
+        onClose={() => setSelectedVideo(null)}
+        videoUrl={selectedVideo?.url}
+        title={selectedVideo?.title}
+      />
     </div>
   );
 };
