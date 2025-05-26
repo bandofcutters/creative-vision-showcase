@@ -11,7 +11,7 @@ const shows = [
     title: "United Gangs of America Season 2",
     description: "An investigative series that delves deep into the hidden world of organized crime networks, exploring their operations, impact on society, and the efforts to dismantle them.",
     image: "/lovable-uploads/a1ab5db7-63b9-40d3-854e-600555069217.png",
-    trailerUrl: "#"
+    trailerUrl: "https://www.youtube.com/embed/FZIkv-943bE" // Replace with actual video ID
   }
 ];
 
